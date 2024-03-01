@@ -49,9 +49,38 @@
             chBoxAddToOldData = new CheckBox();
             chBoxAlwaysUpdate = new CheckBox();
             tBoxDataIN = new TextBox();
+            groupBox4 = new GroupBox();
+            label11 = new Label();
+            textBox4 = new TextBox();
+            label10 = new Label();
+            textBox3 = new TextBox();
+            label9 = new Label();
+            textBox2 = new TextBox();
+            label8 = new Label();
+            textBox1 = new TextBox();
+            label7 = new Label();
+            groupBox5 = new GroupBox();
+            label6 = new Label();
+            btnBack = new Button();
+            btnThird = new Button();
+            btnSecond = new Button();
+            btnFront = new Button();
+            groupBox6 = new GroupBox();
+            btnClearSpeed = new Button();
+            btnEnterSpeed = new Button();
+            label13 = new Label();
+            tBoxTargetSpeed = new TextBox();
+            label12 = new Label();
+            btnCalibration = new Button();
+            label14 = new Label();
+            groupBox7 = new GroupBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
+            groupBox4.SuspendLayout();
+            groupBox5.SuspendLayout();
+            groupBox6.SuspendLayout();
+            groupBox7.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -67,9 +96,9 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(cBoxCOMPORT);
             groupBox1.Location = new Point(8, 8);
-            groupBox1.Margin = new Padding(2, 2, 2, 2);
+            groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(2, 2, 2, 2);
+            groupBox1.Padding = new Padding(2);
             groupBox1.Size = new Size(237, 184);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
@@ -90,7 +119,7 @@
             cBoxParityBits.FormattingEnabled = true;
             cBoxParityBits.Items.AddRange(new object[] { "None", "Odd", "Even" });
             cBoxParityBits.Location = new Point(102, 138);
-            cBoxParityBits.Margin = new Padding(2, 2, 2, 2);
+            cBoxParityBits.Margin = new Padding(2);
             cBoxParityBits.Name = "cBoxParityBits";
             cBoxParityBits.Size = new Size(117, 25);
             cBoxParityBits.TabIndex = 8;
@@ -111,7 +140,7 @@
             cBoxStopBits.FormattingEnabled = true;
             cBoxStopBits.Items.AddRange(new object[] { "One", "Two" });
             cBoxStopBits.Location = new Point(102, 111);
-            cBoxStopBits.Margin = new Padding(2, 2, 2, 2);
+            cBoxStopBits.Margin = new Padding(2);
             cBoxStopBits.Name = "cBoxStopBits";
             cBoxStopBits.Size = new Size(117, 25);
             cBoxStopBits.TabIndex = 6;
@@ -132,7 +161,7 @@
             cBoxDataBits.FormattingEnabled = true;
             cBoxDataBits.Items.AddRange(new object[] { "6", "7", "8" });
             cBoxDataBits.Location = new Point(102, 84);
-            cBoxDataBits.Margin = new Padding(2, 2, 2, 2);
+            cBoxDataBits.Margin = new Padding(2);
             cBoxDataBits.Name = "cBoxDataBits";
             cBoxDataBits.Size = new Size(117, 25);
             cBoxDataBits.TabIndex = 4;
@@ -153,7 +182,7 @@
             cBoxBaudRate.FormattingEnabled = true;
             cBoxBaudRate.Items.AddRange(new object[] { "2400", "4800", "9600", "115200" });
             cBoxBaudRate.Location = new Point(102, 57);
-            cBoxBaudRate.Margin = new Padding(2, 2, 2, 2);
+            cBoxBaudRate.Margin = new Padding(2);
             cBoxBaudRate.Name = "cBoxBaudRate";
             cBoxBaudRate.Size = new Size(117, 25);
             cBoxBaudRate.TabIndex = 2;
@@ -173,30 +202,28 @@
             // 
             cBoxCOMPORT.FormattingEnabled = true;
             cBoxCOMPORT.Location = new Point(102, 30);
-            cBoxCOMPORT.Margin = new Padding(2, 2, 2, 2);
+            cBoxCOMPORT.Margin = new Padding(2);
             cBoxCOMPORT.Name = "cBoxCOMPORT";
             cBoxCOMPORT.Size = new Size(117, 25);
             cBoxCOMPORT.TabIndex = 0;
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(btnClose);
             groupBox2.Controls.Add(progressBar1);
-            groupBox2.Controls.Add(btnOpen);
             groupBox2.Location = new Point(8, 197);
-            groupBox2.Margin = new Padding(2, 2, 2, 2);
+            groupBox2.Margin = new Padding(2);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(2, 2, 2, 2);
+            groupBox2.Padding = new Padding(2);
             groupBox2.Size = new Size(133, 82);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             // 
             // btnClose
             // 
-            btnClose.Location = new Point(68, 21);
-            btnClose.Margin = new Padding(2, 2, 2, 2);
+            btnClose.Location = new Point(655, 486);
+            btnClose.Margin = new Padding(2);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(54, 24);
+            btnClose.Size = new Size(133, 60);
             btnClose.TabIndex = 3;
             btnClose.Text = "CLOSE";
             btnClose.UseVisualStyleBackColor = true;
@@ -205,17 +232,17 @@
             // progressBar1
             // 
             progressBar1.Location = new Point(10, 49);
-            progressBar1.Margin = new Padding(2, 2, 2, 2);
+            progressBar1.Margin = new Padding(2);
             progressBar1.Name = "progressBar1";
             progressBar1.Size = new Size(112, 24);
             progressBar1.TabIndex = 2;
             // 
             // btnOpen
             // 
-            btnOpen.Location = new Point(10, 21);
-            btnOpen.Margin = new Padding(2, 2, 2, 2);
+            btnOpen.Location = new Point(507, 486);
+            btnOpen.Margin = new Padding(2);
             btnOpen.Name = "btnOpen";
-            btnOpen.Size = new Size(54, 24);
+            btnOpen.Size = new Size(128, 60);
             btnOpen.TabIndex = 0;
             btnOpen.Text = "OPEN";
             btnOpen.UseVisualStyleBackColor = true;
@@ -224,7 +251,7 @@
             // btnSendData
             // 
             btnSendData.Location = new Point(154, 207);
-            btnSendData.Margin = new Padding(2, 2, 2, 2);
+            btnSendData.Margin = new Padding(2);
             btnSendData.Name = "btnSendData";
             btnSendData.Size = new Size(90, 72);
             btnSendData.TabIndex = 2;
@@ -235,7 +262,7 @@
             // tBoxDataOut
             // 
             tBoxDataOut.Location = new Point(255, 15);
-            tBoxDataOut.Margin = new Padding(2, 2, 2, 2);
+            tBoxDataOut.Margin = new Padding(2);
             tBoxDataOut.Multiline = true;
             tBoxDataOut.Name = "tBoxDataOut";
             tBoxDataOut.Size = new Size(236, 265);
@@ -247,9 +274,9 @@
             groupBox3.Controls.Add(chBoxAlwaysUpdate);
             groupBox3.Controls.Add(tBoxDataIN);
             groupBox3.Location = new Point(493, 15);
-            groupBox3.Margin = new Padding(2, 2, 2, 2);
+            groupBox3.Margin = new Padding(2);
             groupBox3.Name = "groupBox3";
-            groupBox3.Padding = new Padding(2, 2, 2, 2);
+            groupBox3.Padding = new Padding(2);
             groupBox3.Size = new Size(295, 264);
             groupBox3.TabIndex = 4;
             groupBox3.TabStop = false;
@@ -259,7 +286,7 @@
             // 
             chBoxAddToOldData.AutoSize = true;
             chBoxAddToOldData.Location = new Point(4, 206);
-            chBoxAddToOldData.Margin = new Padding(2, 2, 2, 2);
+            chBoxAddToOldData.Margin = new Padding(2);
             chBoxAddToOldData.Name = "chBoxAddToOldData";
             chBoxAddToOldData.Size = new Size(126, 21);
             chBoxAddToOldData.TabIndex = 7;
@@ -271,7 +298,7 @@
             // 
             chBoxAlwaysUpdate.AutoSize = true;
             chBoxAlwaysUpdate.Location = new Point(4, 182);
-            chBoxAlwaysUpdate.Margin = new Padding(2, 2, 2, 2);
+            chBoxAlwaysUpdate.Margin = new Padding(2);
             chBoxAlwaysUpdate.Name = "chBoxAlwaysUpdate";
             chBoxAlwaysUpdate.Size = new Size(113, 21);
             chBoxAlwaysUpdate.TabIndex = 6;
@@ -281,24 +308,277 @@
             // 
             // tBoxDataIN
             // 
+            tBoxDataIN.Enabled = false;
             tBoxDataIN.Location = new Point(4, 21);
-            tBoxDataIN.Margin = new Padding(2, 2, 2, 2);
+            tBoxDataIN.Margin = new Padding(2);
             tBoxDataIN.Multiline = true;
             tBoxDataIN.Name = "tBoxDataIN";
+            tBoxDataIN.ReadOnly = true;
             tBoxDataIN.Size = new Size(289, 158);
             tBoxDataIN.TabIndex = 5;
+            // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(label11);
+            groupBox4.Controls.Add(textBox4);
+            groupBox4.Controls.Add(label10);
+            groupBox4.Controls.Add(textBox3);
+            groupBox4.Controls.Add(label9);
+            groupBox4.Controls.Add(textBox2);
+            groupBox4.Controls.Add(label8);
+            groupBox4.Controls.Add(textBox1);
+            groupBox4.Controls.Add(label7);
+            groupBox4.Location = new Point(255, 286);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(246, 185);
+            groupBox4.TabIndex = 5;
+            groupBox4.TabStop = false;
+            groupBox4.Text = "Status";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(14, 28);
+            label11.Name = "label11";
+            label11.Size = new Size(222, 17);
+            label11.TabIndex = 8;
+            label11.Text = "Display the status of the cycler here: ";
+            // 
+            // textBox4
+            // 
+            textBox4.Enabled = false;
+            textBox4.Location = new Point(107, 139);
+            textBox4.Name = "textBox4";
+            textBox4.ReadOnly = true;
+            textBox4.Size = new Size(100, 23);
+            textBox4.TabIndex = 7;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(31, 113);
+            label10.Name = "label10";
+            label10.Size = new Size(50, 17);
+            label10.TabIndex = 6;
+            label10.Text = "label10";
+            // 
+            // textBox3
+            // 
+            textBox3.Enabled = false;
+            textBox3.Location = new Point(107, 110);
+            textBox3.Name = "textBox3";
+            textBox3.ReadOnly = true;
+            textBox3.Size = new Size(100, 23);
+            textBox3.TabIndex = 5;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(31, 142);
+            label9.Name = "label9";
+            label9.Size = new Size(65, 17);
+            label9.TabIndex = 4;
+            label9.Text = "Cadence: ";
+            // 
+            // textBox2
+            // 
+            textBox2.Enabled = false;
+            textBox2.Location = new Point(107, 81);
+            textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
+            textBox2.Size = new Size(100, 23);
+            textBox2.TabIndex = 3;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(31, 84);
+            label8.Name = "label8";
+            label8.Size = new Size(52, 17);
+            label8.TabIndex = 2;
+            label8.Text = "Speed: ";
+            // 
+            // textBox1
+            // 
+            textBox1.Enabled = false;
+            textBox1.Location = new Point(107, 49);
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(100, 23);
+            textBox1.TabIndex = 1;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(31, 55);
+            label7.Name = "label7";
+            label7.Size = new Size(47, 17);
+            label7.TabIndex = 0;
+            label7.Text = "Power:";
+            // 
+            // groupBox5
+            // 
+            groupBox5.Controls.Add(label6);
+            groupBox5.Controls.Add(btnBack);
+            groupBox5.Controls.Add(btnThird);
+            groupBox5.Controls.Add(btnSecond);
+            groupBox5.Controls.Add(btnFront);
+            groupBox5.Location = new Point(8, 286);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new Size(241, 314);
+            groupBox5.TabIndex = 0;
+            groupBox5.TabStop = false;
+            groupBox5.Text = "Position";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(26, 35);
+            label6.Name = "label6";
+            label6.Size = new Size(200, 17);
+            label6.TabIndex = 8;
+            label6.Text = "Adjust the cycler's position here: ";
+            // 
+            // btnBack
+            // 
+            btnBack.Location = new Point(27, 250);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(192, 38);
+            btnBack.TabIndex = 7;
+            btnBack.Text = "Back";
+            btnBack.UseVisualStyleBackColor = true;
+            // 
+            // btnThird
+            // 
+            btnThird.Location = new Point(27, 186);
+            btnThird.Name = "btnThird";
+            btnThird.Size = new Size(192, 38);
+            btnThird.TabIndex = 6;
+            btnThird.Text = "3rd";
+            btnThird.UseVisualStyleBackColor = true;
+            // 
+            // btnSecond
+            // 
+            btnSecond.Location = new Point(27, 122);
+            btnSecond.Name = "btnSecond";
+            btnSecond.Size = new Size(192, 38);
+            btnSecond.TabIndex = 5;
+            btnSecond.Text = "2nd";
+            btnSecond.UseVisualStyleBackColor = true;
+            // 
+            // btnFront
+            // 
+            btnFront.Location = new Point(27, 59);
+            btnFront.Name = "btnFront";
+            btnFront.Size = new Size(192, 38);
+            btnFront.TabIndex = 4;
+            btnFront.Text = "Front";
+            btnFront.UseVisualStyleBackColor = true;
+            // 
+            // groupBox6
+            // 
+            groupBox6.Controls.Add(btnClearSpeed);
+            groupBox6.Controls.Add(btnEnterSpeed);
+            groupBox6.Controls.Add(label13);
+            groupBox6.Controls.Add(tBoxTargetSpeed);
+            groupBox6.Controls.Add(label12);
+            groupBox6.Location = new Point(255, 474);
+            groupBox6.Name = "groupBox6";
+            groupBox6.Size = new Size(246, 126);
+            groupBox6.TabIndex = 6;
+            groupBox6.TabStop = false;
+            groupBox6.Text = "Adjust Speed";
+            // 
+            // btnClearSpeed
+            // 
+            btnClearSpeed.Location = new Point(132, 84);
+            btnClearSpeed.Name = "btnClearSpeed";
+            btnClearSpeed.Size = new Size(75, 23);
+            btnClearSpeed.TabIndex = 14;
+            btnClearSpeed.Text = "Clear";
+            btnClearSpeed.UseVisualStyleBackColor = true;
+            // 
+            // btnEnterSpeed
+            // 
+            btnEnterSpeed.Location = new Point(45, 84);
+            btnEnterSpeed.Name = "btnEnterSpeed";
+            btnEnterSpeed.Size = new Size(75, 23);
+            btnEnterSpeed.TabIndex = 13;
+            btnEnterSpeed.Text = "Enter";
+            btnEnterSpeed.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(14, 31);
+            label13.Name = "label13";
+            label13.Size = new Size(218, 17);
+            label13.TabIndex = 9;
+            label13.Text = "Adjust the speed of the cycler here: ";
+            // 
+            // tBoxTargetSpeed
+            // 
+            tBoxTargetSpeed.Location = new Point(124, 55);
+            tBoxTargetSpeed.Name = "tBoxTargetSpeed";
+            tBoxTargetSpeed.Size = new Size(100, 23);
+            tBoxTargetSpeed.TabIndex = 12;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(29, 58);
+            label12.Name = "label12";
+            label12.Size = new Size(93, 17);
+            label12.TabIndex = 11;
+            label12.Text = "Target speed: ";
+            // 
+            // btnCalibration
+            // 
+            btnCalibration.Location = new Point(507, 295);
+            btnCalibration.Name = "btnCalibration";
+            btnCalibration.Size = new Size(281, 63);
+            btnCalibration.TabIndex = 7;
+            btnCalibration.Text = "Calibration";
+            btnCalibration.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Britannic Bold", 30F, FontStyle.Regular, GraphicsUnit.Point);
+            label14.Location = new Point(76, 35);
+            label14.Name = "label14";
+            label14.Size = new Size(136, 44);
+            label14.TabIndex = 8;
+            label14.Text = "Offline";
+            // 
+            // groupBox7
+            // 
+            groupBox7.Controls.Add(label14);
+            groupBox7.Location = new Point(507, 364);
+            groupBox7.Name = "groupBox7";
+            groupBox7.Size = new Size(281, 107);
+            groupBox7.TabIndex = 9;
+            groupBox7.TabStop = false;
+            groupBox7.Text = "Cycler linking Statu";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(796, 612);
+            Controls.Add(btnClose);
+            Controls.Add(groupBox7);
+            Controls.Add(btnOpen);
+            Controls.Add(btnCalibration);
+            Controls.Add(groupBox6);
+            Controls.Add(groupBox5);
+            Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(tBoxDataOut);
             Controls.Add(btnSendData);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "Form1";
             Text = "C# COM PORT SERIAL";
             Load += Form1_Load;
@@ -307,6 +587,14 @@
             groupBox2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
+            groupBox4.ResumeLayout(false);
+            groupBox4.PerformLayout();
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
+            groupBox6.ResumeLayout(false);
+            groupBox6.PerformLayout();
+            groupBox7.ResumeLayout(false);
+            groupBox7.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -334,5 +622,30 @@
         private CheckBox chBoxAddToOldData;
         private CheckBox chBoxAlwaysUpdate;
         private TextBox tBoxDataIN;
+        private GroupBox groupBox4;
+        private Label label7;
+        private GroupBox groupBox5;
+        private Label label6;
+        private Button btnBack;
+        private Button btnThird;
+        private Button btnSecond;
+        private Button btnFront;
+        private Label label11;
+        private TextBox textBox4;
+        private Label label10;
+        private TextBox textBox3;
+        private Label label9;
+        private TextBox textBox2;
+        private Label label8;
+        private TextBox textBox1;
+        private GroupBox groupBox6;
+        private Button btnClearSpeed;
+        private Button btnEnterSpeed;
+        private Label label13;
+        private TextBox tBoxTargetSpeed;
+        private Label label12;
+        private Button btnCalibration;
+        private Label label14;
+        private GroupBox groupBox7;
     }
 }
