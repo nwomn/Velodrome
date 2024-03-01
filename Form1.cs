@@ -1,6 +1,6 @@
 using System.IO.Ports;
 
-namespace ComPort
+namespace Velodrome
 {
     public partial class Form1 : Form
     {
@@ -66,7 +66,8 @@ namespace ComPort
 
         private void ShowData(object? sender, EventArgs e)
         {
-            if (chBoxAlwaysUpdate.Checked) {
+            if (chBoxAlwaysUpdate.Checked)
+            {
                 tBoxDataIN.Text = dataIN;
             }
             else if (chBoxAddToOldData.Checked)
@@ -81,7 +82,7 @@ namespace ComPort
             {
                 chBoxAlwaysUpdate.Checked = true;
                 chBoxAddToOldData.Checked = false;
-            } 
+            }
             else
             {
                 chBoxAddToOldData.Checked = true;

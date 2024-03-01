@@ -1,4 +1,4 @@
-﻿namespace ComPort
+﻿namespace Velodrome
 {
     partial class Form1
     {
@@ -66,9 +66,11 @@
             groupBox1.Controls.Add(cBoxBaudRate);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(cBoxCOMPORT);
-            groupBox1.Location = new Point(12, 12);
+            groupBox1.Location = new Point(8, 8);
+            groupBox1.Margin = new Padding(2, 2, 2, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(372, 260);
+            groupBox1.Padding = new Padding(2, 2, 2, 2);
+            groupBox1.Size = new Size(237, 184);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Com Port Control";
@@ -76,9 +78,10 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(27, 198);
+            label5.Location = new Point(17, 140);
+            label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
-            label5.Size = new Size(113, 24);
+            label5.Size = new Size(79, 17);
             label5.TabIndex = 9;
             label5.Text = "PARITY BITS";
             // 
@@ -86,18 +89,20 @@
             // 
             cBoxParityBits.FormattingEnabled = true;
             cBoxParityBits.Items.AddRange(new object[] { "None", "Odd", "Even" });
-            cBoxParityBits.Location = new Point(160, 195);
+            cBoxParityBits.Location = new Point(102, 138);
+            cBoxParityBits.Margin = new Padding(2, 2, 2, 2);
             cBoxParityBits.Name = "cBoxParityBits";
-            cBoxParityBits.Size = new Size(182, 32);
+            cBoxParityBits.Size = new Size(117, 25);
             cBoxParityBits.TabIndex = 8;
             cBoxParityBits.Text = "None";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(27, 160);
+            label4.Location = new Point(17, 113);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(97, 24);
+            label4.Size = new Size(69, 17);
             label4.TabIndex = 7;
             label4.Text = "STOP BITS";
             // 
@@ -105,18 +110,20 @@
             // 
             cBoxStopBits.FormattingEnabled = true;
             cBoxStopBits.Items.AddRange(new object[] { "One", "Two" });
-            cBoxStopBits.Location = new Point(160, 157);
+            cBoxStopBits.Location = new Point(102, 111);
+            cBoxStopBits.Margin = new Padding(2, 2, 2, 2);
             cBoxStopBits.Name = "cBoxStopBits";
-            cBoxStopBits.Size = new Size(182, 32);
+            cBoxStopBits.Size = new Size(117, 25);
             cBoxStopBits.TabIndex = 6;
             cBoxStopBits.Text = "One";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(27, 122);
+            label3.Location = new Point(17, 86);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(101, 24);
+            label3.Size = new Size(70, 17);
             label3.TabIndex = 5;
             label3.Text = "DATA BITS";
             // 
@@ -124,18 +131,20 @@
             // 
             cBoxDataBits.FormattingEnabled = true;
             cBoxDataBits.Items.AddRange(new object[] { "6", "7", "8" });
-            cBoxDataBits.Location = new Point(160, 119);
+            cBoxDataBits.Location = new Point(102, 84);
+            cBoxDataBits.Margin = new Padding(2, 2, 2, 2);
             cBoxDataBits.Name = "cBoxDataBits";
-            cBoxDataBits.Size = new Size(182, 32);
+            cBoxDataBits.Size = new Size(117, 25);
             cBoxDataBits.TabIndex = 4;
             cBoxDataBits.Text = "8";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(27, 84);
+            label2.Location = new Point(17, 60);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(111, 24);
+            label2.Size = new Size(76, 17);
             label2.TabIndex = 3;
             label2.Text = "BAUD RATE";
             // 
@@ -143,27 +152,30 @@
             // 
             cBoxBaudRate.FormattingEnabled = true;
             cBoxBaudRate.Items.AddRange(new object[] { "2400", "4800", "9600", "115200" });
-            cBoxBaudRate.Location = new Point(160, 81);
+            cBoxBaudRate.Location = new Point(102, 57);
+            cBoxBaudRate.Margin = new Padding(2, 2, 2, 2);
             cBoxBaudRate.Name = "cBoxBaudRate";
-            cBoxBaudRate.Size = new Size(182, 32);
+            cBoxBaudRate.Size = new Size(117, 25);
             cBoxBaudRate.TabIndex = 2;
             cBoxBaudRate.Text = "115200";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(27, 46);
+            label1.Location = new Point(17, 33);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(108, 24);
+            label1.Size = new Size(74, 17);
             label1.TabIndex = 1;
             label1.Text = "COM PORT";
             // 
             // cBoxCOMPORT
             // 
             cBoxCOMPORT.FormattingEnabled = true;
-            cBoxCOMPORT.Location = new Point(160, 43);
+            cBoxCOMPORT.Location = new Point(102, 30);
+            cBoxCOMPORT.Margin = new Padding(2, 2, 2, 2);
             cBoxCOMPORT.Name = "cBoxCOMPORT";
-            cBoxCOMPORT.Size = new Size(182, 32);
+            cBoxCOMPORT.Size = new Size(117, 25);
             cBoxCOMPORT.TabIndex = 0;
             // 
             // groupBox2
@@ -171,17 +183,20 @@
             groupBox2.Controls.Add(btnClose);
             groupBox2.Controls.Add(progressBar1);
             groupBox2.Controls.Add(btnOpen);
-            groupBox2.Location = new Point(12, 278);
+            groupBox2.Location = new Point(8, 197);
+            groupBox2.Margin = new Padding(2, 2, 2, 2);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(209, 116);
+            groupBox2.Padding = new Padding(2, 2, 2, 2);
+            groupBox2.Size = new Size(133, 82);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             // 
             // btnClose
             // 
-            btnClose.Location = new Point(107, 29);
+            btnClose.Location = new Point(68, 21);
+            btnClose.Margin = new Padding(2, 2, 2, 2);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(85, 34);
+            btnClose.Size = new Size(54, 24);
             btnClose.TabIndex = 3;
             btnClose.Text = "CLOSE";
             btnClose.UseVisualStyleBackColor = true;
@@ -189,16 +204,18 @@
             // 
             // progressBar1
             // 
-            progressBar1.Location = new Point(16, 69);
+            progressBar1.Location = new Point(10, 49);
+            progressBar1.Margin = new Padding(2, 2, 2, 2);
             progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(176, 34);
+            progressBar1.Size = new Size(112, 24);
             progressBar1.TabIndex = 2;
             // 
             // btnOpen
             // 
-            btnOpen.Location = new Point(16, 29);
+            btnOpen.Location = new Point(10, 21);
+            btnOpen.Margin = new Padding(2, 2, 2, 2);
             btnOpen.Name = "btnOpen";
-            btnOpen.Size = new Size(85, 34);
+            btnOpen.Size = new Size(54, 24);
             btnOpen.TabIndex = 0;
             btnOpen.Text = "OPEN";
             btnOpen.UseVisualStyleBackColor = true;
@@ -206,9 +223,10 @@
             // 
             // btnSendData
             // 
-            btnSendData.Location = new Point(242, 292);
+            btnSendData.Location = new Point(154, 207);
+            btnSendData.Margin = new Padding(2, 2, 2, 2);
             btnSendData.Name = "btnSendData";
-            btnSendData.Size = new Size(142, 102);
+            btnSendData.Size = new Size(90, 72);
             btnSendData.TabIndex = 2;
             btnSendData.Text = "Send Data";
             btnSendData.UseVisualStyleBackColor = true;
@@ -216,10 +234,11 @@
             // 
             // tBoxDataOut
             // 
-            tBoxDataOut.Location = new Point(400, 21);
+            tBoxDataOut.Location = new Point(255, 15);
+            tBoxDataOut.Margin = new Padding(2, 2, 2, 2);
             tBoxDataOut.Multiline = true;
             tBoxDataOut.Name = "tBoxDataOut";
-            tBoxDataOut.Size = new Size(369, 373);
+            tBoxDataOut.Size = new Size(236, 265);
             tBoxDataOut.TabIndex = 3;
             // 
             // groupBox3
@@ -227,9 +246,11 @@
             groupBox3.Controls.Add(chBoxAddToOldData);
             groupBox3.Controls.Add(chBoxAlwaysUpdate);
             groupBox3.Controls.Add(tBoxDataIN);
-            groupBox3.Location = new Point(775, 21);
+            groupBox3.Location = new Point(493, 15);
+            groupBox3.Margin = new Padding(2, 2, 2, 2);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(464, 373);
+            groupBox3.Padding = new Padding(2, 2, 2, 2);
+            groupBox3.Size = new Size(295, 264);
             groupBox3.TabIndex = 4;
             groupBox3.TabStop = false;
             groupBox3.Text = "Receiver Control";
@@ -237,9 +258,10 @@
             // chBoxAddToOldData
             // 
             chBoxAddToOldData.AutoSize = true;
-            chBoxAddToOldData.Location = new Point(6, 291);
+            chBoxAddToOldData.Location = new Point(4, 206);
+            chBoxAddToOldData.Margin = new Padding(2, 2, 2, 2);
             chBoxAddToOldData.Name = "chBoxAddToOldData";
-            chBoxAddToOldData.Size = new Size(182, 28);
+            chBoxAddToOldData.Size = new Size(126, 21);
             chBoxAddToOldData.TabIndex = 7;
             chBoxAddToOldData.Text = "Add To Old Data";
             chBoxAddToOldData.UseVisualStyleBackColor = true;
@@ -248,9 +270,10 @@
             // chBoxAlwaysUpdate
             // 
             chBoxAlwaysUpdate.AutoSize = true;
-            chBoxAlwaysUpdate.Location = new Point(6, 257);
+            chBoxAlwaysUpdate.Location = new Point(4, 182);
+            chBoxAlwaysUpdate.Margin = new Padding(2, 2, 2, 2);
             chBoxAlwaysUpdate.Name = "chBoxAlwaysUpdate";
-            chBoxAlwaysUpdate.Size = new Size(165, 28);
+            chBoxAlwaysUpdate.Size = new Size(113, 21);
             chBoxAlwaysUpdate.TabIndex = 6;
             chBoxAlwaysUpdate.Text = "Always Update";
             chBoxAlwaysUpdate.UseVisualStyleBackColor = true;
@@ -258,22 +281,24 @@
             // 
             // tBoxDataIN
             // 
-            tBoxDataIN.Location = new Point(6, 29);
+            tBoxDataIN.Location = new Point(4, 21);
+            tBoxDataIN.Margin = new Padding(2, 2, 2, 2);
             tBoxDataIN.Multiline = true;
             tBoxDataIN.Name = "tBoxDataIN";
-            tBoxDataIN.Size = new Size(452, 222);
+            tBoxDataIN.Size = new Size(289, 158);
             tBoxDataIN.TabIndex = 5;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(11F, 24F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1251, 403);
+            ClientSize = new Size(796, 612);
             Controls.Add(groupBox3);
             Controls.Add(tBoxDataOut);
             Controls.Add(btnSendData);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "Form1";
             Text = "C# COM PORT SERIAL";
             Load += Form1_Load;
