@@ -7,6 +7,7 @@ namespace Velodrome
         SerialPort serialPort1 = new SerialPort();
         string dataOUT;
         string dataIN;
+        private Form2 form2Instance; // 全局变量用于存储 Form2 实例
         public Form1()
         {
             InitializeComponent();
@@ -60,10 +61,10 @@ namespace Velodrome
         }
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            dataIN = serialPort1.ReadExisting();
+            ReceivePacket();
+            // dataIN = serialPort1.ReadExisting();
             this.Invoke(new EventHandler(ShowData));
         }
-
         private void ShowData(object? sender, EventArgs e)
         {
             if (chBoxAlwaysUpdate.Checked)
@@ -75,7 +76,36 @@ namespace Velodrome
                 tBoxDataIN.Text += dataIN;
             }
         }
+        private void ReceivePacket()
+        {
+            // 读取 5 个字节的数据
+            byte[] buffer = new byte[5];
+            serialPort1.Read(buffer, 0, 5);
 
+            // 解析数据类型
+            byte type = buffer[0];
+            if (type == 0x80) // 数据类型为 uint32
+            {
+                uint data = BitConverter.ToUInt32(buffer, 1);
+                Packet_Int packetInt = new Packet_Int { type = type, data = data };
+                // 处理 Packet_Int 数据
+                Console.WriteLine($"Received Packet_Int: Type={packetInt.type}, Data={packetInt.data}");
+                dataIN = packetInt.data.ToString();
+            }
+            else if (type == 2) // 数据类型为 float
+            {
+                float data = BitConverter.ToSingle(buffer, 1);
+                Packet_Float packetFloat = new Packet_Float { type = type, data = data };
+                // 处理 Packet_Float 数据
+                Console.WriteLine($"Received Packet_Float: Type={packetFloat.type}, Data={packetFloat.data}");
+                dataIN = packetFloat.data.ToString();
+            }
+            else
+            {
+                // 错误的数据类型
+                Console.WriteLine("Received unknown data type.");
+            }
+        }
         private void chBoxAlwaysUpdate_CheckedChanged(object sender, EventArgs e)
         {
             if (chBoxAlwaysUpdate.Checked)
@@ -101,5 +131,32 @@ namespace Velodrome
                 chBoxAlwaysUpdate.Checked = true;
             }
         }
+
+        private void btnCalibration_Click(object sender, EventArgs e)
+        {
+            if (form2Instance == null || form2Instance.IsDisposed)
+            {
+                // 如果 Form2 实例为空或已被释放，则创建新的实例
+                form2Instance = new Form2();
+                form2Instance.Show();
+            }
+            else
+            {
+                // 如果 Form2 实例已存在，则将其带到前台
+                form2Instance.Focus();
+            }
+        }
+    }
+
+    // 定义两个Packet结构体，表示接收/发送的参数包，一个用于int类型参数，另一个用于float类型参数
+    public struct Packet_Int
+    {
+        public Byte type;
+        public UInt32 data;
+    }
+    public struct Packet_Float
+    {
+        public Byte type;
+        public float data;
     }
 }
