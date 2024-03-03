@@ -36,6 +36,17 @@ namespace Velodrome
         const byte ACKOPEN = 0x91;
         const byte ACKCLOSE = 0x92;
 
+        // 定义默认校正参数
+        public CalibrationParameters DEFAULTPARAMETERS = new CalibrationParameters
+        {
+            offset = "1",
+            coefficient = "2",
+            wheel_radius = "3",
+            p_to_s0 = "4",
+            p_to_s1 = "5",
+            p_to_s2 = "6",
+            p_to_s3 = "7",
+        };
 
         public Form1()
         {
@@ -148,6 +159,16 @@ namespace Velodrome
                     dataIN = cadenceData.ToString();
                     tBoxCadence.Text = cadenceData.ToString();
                     break;
+                case GETPARAM: // 接收发送校正参数请求（Get_param）
+                    CalibrationParameters calibrationParameters = (form2Instance == null) ? DEFAULTPARAMETERS: form2Instance.parameters;
+                    SendCalibrationParameter<uint>(OFFSET, calibrationParameters.offset);
+                    SendCalibrationParameter<float>(COEFFICIENT, calibrationParameters.coefficient);
+                    SendCalibrationParameter<float>(WHEELRADIUS, calibrationParameters.wheel_radius);
+                    SendCalibrationParameter<float>(P2S0, calibrationParameters.p_to_s0);
+                    SendCalibrationParameter<float>(P2S1, calibrationParameters.p_to_s1);
+                    SendCalibrationParameter<float>(P2S2, calibrationParameters.p_to_s2);
+                    SendCalibrationParameter<float>(P2S3, calibrationParameters.p_to_s3);
+                    break;
                 default:
                     // 错误的数据类型
                     Console.WriteLine("Received unknown data type.");
@@ -157,8 +178,51 @@ namespace Velodrome
         private static float ConvertFloatData(byte type, byte[] dataBuffer)
         {
             float data = BitConverter.ToSingle(dataBuffer, 0);
-            Packet_Float packetInt = new Packet_Float { type = type, data = data };
+            // Packet_Float packetInt = new Packet_Float { type = type, data = data };
             return data;
+        }
+        private void SendCalibrationParameter<T>(byte type, string calibrationParameter) where T : struct
+        {
+            try
+            {
+                if (!serialPort1.IsOpen)
+                    throw new Exception("Must Connect to the cycler first.");
+
+                byte[] dataBytes;
+                if (typeof(T) == typeof(uint))
+                {
+                    if (!uint.TryParse(calibrationParameter, out uint data))
+                        throw new Exception("Input Calibration Parameters are not the correct format.");
+
+                    // 将浮点数转换为 4 字节的字节数组
+                    dataBytes = BitConverter.GetBytes(data);
+                    Array.Reverse(dataBytes);
+                }
+                else if (typeof(T) == typeof(float))
+                {
+                    if (!float.TryParse(calibrationParameter, out float data))
+                        throw new Exception("Input Calibration Parameters are not the correct format.");
+                    
+                    // 将浮点数转换为 4 字节的字节数组
+                    dataBytes = BitConverter.GetBytes(data);
+                    Array.Reverse(dataBytes);
+
+                }
+                else
+                {
+                    throw new Exception("Invalid data type. Only uint and float are supported.");
+                }
+
+                // 组装数据包
+                byte[] packet = new byte[5];
+                packet[0] = type; // 数据包头
+                Array.Copy(dataBytes, 0, packet, 1, 4); // 将浮点数字节数组复制到数据包中
+                serialPort1.Write(packet, 0, packet.Length); // 发送数据包到串口
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void chBoxAlwaysUpdate_CheckedChanged(object sender, EventArgs e)
         {
@@ -191,7 +255,7 @@ namespace Velodrome
             if (form2Instance == null || form2Instance.IsDisposed)
             {
                 // 如果 Form2 实例为空或已被释放，则创建新的实例
-                form2Instance = new Form2();
+                form2Instance = new Form2(this);
                 form2Instance.Show();
             }
             else
@@ -277,15 +341,25 @@ namespace Velodrome
         }
     }
 
-    // 定义两个Packet结构体，表示接收/发送的参数包，一个用于int类型参数，另一个用于float类型参数
-    public struct Packet_Int
+    //// 定义两个Packet结构体，表示接收/发送的参数包，一个用于int类型参数，另一个用于float类型参数
+    //public struct Packet_Int
+    //{
+    //    public Byte type;
+    //    public UInt32 data;
+    //}
+    //public struct Packet_Float
+    //{
+    //    public Byte type;
+    //    public float data;
+    //}
+    public struct CalibrationParameters
     {
-        public Byte type;
-        public UInt32 data;
-    }
-    public struct Packet_Float
-    {
-        public Byte type;
-        public float data;
+        public string offset;
+        public string coefficient;
+        public string wheel_radius;
+        public string p_to_s0;
+        public string p_to_s1;
+        public string p_to_s2;
+        public string p_to_s3;
     }
 }

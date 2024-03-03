@@ -37,13 +37,13 @@
             tBoxOffset = new TextBox();
             label2 = new Label();
             groupBox2 = new GroupBox();
-            tBoxPtS4 = new TextBox();
-            label8 = new Label();
             tBoxPtS3 = new TextBox();
-            label7 = new Label();
+            label8 = new Label();
             tBoxPtS2 = new TextBox();
-            label6 = new Label();
+            label7 = new Label();
             tBoxPtS1 = new TextBox();
+            label6 = new Label();
+            tBoxPtS0 = new TextBox();
             label5 = new Label();
             btnSave = new Button();
             btnLoad = new Button();
@@ -82,6 +82,7 @@
             tBoxWheelRadius.Name = "tBoxWheelRadius";
             tBoxWheelRadius.Size = new Size(150, 30);
             tBoxWheelRadius.TabIndex = 5;
+            tBoxWheelRadius.TextChanged += Parameters_TextChanged;
             // 
             // label4
             // 
@@ -98,6 +99,7 @@
             tBoxCoefficient.Name = "tBoxCoefficient";
             tBoxCoefficient.Size = new Size(150, 30);
             tBoxCoefficient.TabIndex = 3;
+            tBoxCoefficient.TextChanged += Parameters_TextChanged;
             // 
             // label3
             // 
@@ -114,6 +116,7 @@
             tBoxOffset.Name = "tBoxOffset";
             tBoxOffset.Size = new Size(150, 30);
             tBoxOffset.TabIndex = 1;
+            tBoxOffset.TextChanged += Parameters_TextChanged;
             // 
             // label2
             // 
@@ -126,13 +129,13 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(tBoxPtS4);
-            groupBox2.Controls.Add(label8);
             groupBox2.Controls.Add(tBoxPtS3);
-            groupBox2.Controls.Add(label7);
+            groupBox2.Controls.Add(label8);
             groupBox2.Controls.Add(tBoxPtS2);
-            groupBox2.Controls.Add(label6);
+            groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(tBoxPtS1);
+            groupBox2.Controls.Add(label6);
+            groupBox2.Controls.Add(tBoxPtS0);
             groupBox2.Controls.Add(label5);
             groupBox2.Location = new Point(31, 206);
             groupBox2.Name = "groupBox2";
@@ -141,12 +144,13 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Power to speed coefficients";
             // 
-            // tBoxPtS4
+            // tBoxPtS3
             // 
-            tBoxPtS4.Location = new Point(244, 137);
-            tBoxPtS4.Name = "tBoxPtS4";
-            tBoxPtS4.Size = new Size(150, 30);
-            tBoxPtS4.TabIndex = 10;
+            tBoxPtS3.Location = new Point(244, 137);
+            tBoxPtS3.Name = "tBoxPtS3";
+            tBoxPtS3.Size = new Size(150, 30);
+            tBoxPtS3.TabIndex = 10;
+            tBoxPtS3.TextChanged += Parameters_TextChanged;
             // 
             // label8
             // 
@@ -157,12 +161,13 @@
             label8.TabIndex = 9;
             label8.Text = "Power to Speed(Back): ";
             // 
-            // tBoxPtS3
+            // tBoxPtS2
             // 
-            tBoxPtS3.Location = new Point(244, 101);
-            tBoxPtS3.Name = "tBoxPtS3";
-            tBoxPtS3.Size = new Size(150, 30);
-            tBoxPtS3.TabIndex = 8;
+            tBoxPtS2.Location = new Point(244, 101);
+            tBoxPtS2.Name = "tBoxPtS2";
+            tBoxPtS2.Size = new Size(150, 30);
+            tBoxPtS2.TabIndex = 8;
+            tBoxPtS2.TextChanged += Parameters_TextChanged;
             // 
             // label7
             // 
@@ -173,12 +178,13 @@
             label7.TabIndex = 7;
             label7.Text = "Power to Speed(3rd): ";
             // 
-            // tBoxPtS2
+            // tBoxPtS1
             // 
-            tBoxPtS2.Location = new Point(244, 65);
-            tBoxPtS2.Name = "tBoxPtS2";
-            tBoxPtS2.Size = new Size(150, 30);
-            tBoxPtS2.TabIndex = 6;
+            tBoxPtS1.Location = new Point(244, 65);
+            tBoxPtS1.Name = "tBoxPtS1";
+            tBoxPtS1.Size = new Size(150, 30);
+            tBoxPtS1.TabIndex = 6;
+            tBoxPtS1.TextChanged += Parameters_TextChanged;
             // 
             // label6
             // 
@@ -189,12 +195,13 @@
             label6.TabIndex = 5;
             label6.Text = "Power to Speed(2nd): ";
             // 
-            // tBoxPtS1
+            // tBoxPtS0
             // 
-            tBoxPtS1.Location = new Point(244, 29);
-            tBoxPtS1.Name = "tBoxPtS1";
-            tBoxPtS1.Size = new Size(150, 30);
-            tBoxPtS1.TabIndex = 4;
+            tBoxPtS0.Location = new Point(244, 29);
+            tBoxPtS0.Name = "tBoxPtS0";
+            tBoxPtS0.Size = new Size(150, 30);
+            tBoxPtS0.TabIndex = 4;
+            tBoxPtS0.TextChanged += Parameters_TextChanged;
             // 
             // label5
             // 
@@ -213,6 +220,7 @@
             btnSave.TabIndex = 3;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // btnLoad
             // 
@@ -222,6 +230,7 @@
             btnLoad.TabIndex = 4;
             btnLoad.Text = "Load";
             btnLoad.UseVisualStyleBackColor = true;
+            btnLoad.Click += btnLoad_Click;
             // 
             // btnReset
             // 
@@ -231,6 +240,7 @@
             btnReset.TabIndex = 5;
             btnReset.Text = "Reset";
             btnReset.UseVisualStyleBackColor = true;
+            btnReset.Click += btnReset_Click;
             // 
             // Form2
             // 
@@ -265,13 +275,13 @@
         private Label label3;
         private TextBox tBoxOffset;
         private Label label2;
-        private TextBox tBoxPtS4;
-        private Label label8;
         private TextBox tBoxPtS3;
-        private Label label7;
+        private Label label8;
         private TextBox tBoxPtS2;
-        private Label label6;
+        private Label label7;
         private TextBox tBoxPtS1;
+        private Label label6;
+        private TextBox tBoxPtS0;
         private Label label5;
         private Button btnSave;
         private Button btnLoad;
