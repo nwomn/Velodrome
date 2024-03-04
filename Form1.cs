@@ -9,6 +9,7 @@ namespace Velodrome
         string dataOUT;
         string dataIN;
         private Form2 form2Instance; // 全局变量用于存储 Form2 实例
+        private bool correct_port = false;
 
         // 骑行者位置常量定义
         const UInt32 FRONT = 1;
@@ -58,8 +59,8 @@ namespace Velodrome
             string[] ports = SerialPort.GetPortNames();
             cBoxCOMPORT.Items.AddRange(ports);
             serialPort1.DataReceived += serialPort1_DataReceived;
-            chBoxAlwaysUpdate.Checked = true;
-            chBoxAddToOldData.Checked = false;
+            //chBoxAlwaysUpdate.Checked = true;
+            //chBoxAddToOldData.Checked = false;
             lblOffline.Visible = true;
             lblOnline.Visible = false;
         }
@@ -75,7 +76,7 @@ namespace Velodrome
                 serialPort1.Parity = (Parity)Enum.Parse(typeof(Parity), cBoxParityBits.Text);
 
                 serialPort1.Open();
-                progressBar1.Value = 100;
+                //progressBar1.Value = 100;
                 lblOffline.Visible = false;
                 lblOnline.Visible = true;
             }
@@ -90,38 +91,38 @@ namespace Velodrome
             if (serialPort1.IsOpen)
             {
                 serialPort1.Close();
-                progressBar1.Value = 0;
+                //progressBar1.Value = 0;
                 lblOffline.Visible = true;
                 lblOnline.Visible = false;
             }
         }
 
-        private void btnSendData_Click(object sender, EventArgs e)
-        {
-            if (serialPort1.IsOpen)
-            {
-                dataOUT = tBoxDataOut.Text;
-                // serialPort1.WriteLine(dataOUT);
-                serialPort1.Write(dataOUT);
-            }
-        }
+        //private void btnSendData_Click(object sender, EventArgs e)
+        //{
+        //    if (serialPort1.IsOpen)
+        //    {
+        //        // dataOUT = tBoxDataOut.Text;
+        //        // serialPort1.WriteLine(dataOUT);
+        //        serialPort1.Write(dataOUT);
+        //    }
+        //}
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             this.Invoke(new EventHandler(ReceivePacket));
             // dataIN = serialPort1.ReadExisting();
-            this.Invoke(new EventHandler(ShowData));
+            // this.Invoke(new EventHandler(ShowData));
         }
-        private void ShowData(object? sender, EventArgs e)
-        {
-            if (chBoxAlwaysUpdate.Checked)
-            {
-                tBoxDataIN.Text = dataIN;
-            }
-            else if (chBoxAddToOldData.Checked)
-            {
-                tBoxDataIN.Text += dataIN;
-            }
-        }
+        //private void ShowData(object? sender, EventArgs e)
+        //{
+        //    if (chBoxAlwaysUpdate.Checked)
+        //    {
+        //        tBoxDataIN.Text = dataIN;
+        //    }
+        //    else if (chBoxAddToOldData.Checked)
+        //    {
+        //        tBoxDataIN.Text += dataIN;
+        //    }
+        //}
         private void ReceivePacket(object? sender, EventArgs e)
         {
             // 读取 5 个字节的数据
@@ -160,7 +161,7 @@ namespace Velodrome
                     tBoxCadence.Text = cadenceData.ToString();
                     break;
                 case GETPARAM: // 接收发送校正参数请求（Get_param）
-                    CalibrationParameters calibrationParameters = (form2Instance == null) ? DEFAULTPARAMETERS: form2Instance.parameters;
+                    CalibrationParameters calibrationParameters = (form2Instance == null) ? DEFAULTPARAMETERS : form2Instance.parameters;
                     SendCalibrationParameter<uint>(OFFSET, calibrationParameters.offset);
                     SendCalibrationParameter<float>(COEFFICIENT, calibrationParameters.coefficient);
                     SendCalibrationParameter<float>(WHEELRADIUS, calibrationParameters.wheel_radius);
@@ -168,6 +169,9 @@ namespace Velodrome
                     SendCalibrationParameter<float>(P2S1, calibrationParameters.p_to_s1);
                     SendCalibrationParameter<float>(P2S2, calibrationParameters.p_to_s2);
                     SendCalibrationParameter<float>(P2S3, calibrationParameters.p_to_s3);
+                    break;
+                case ACKOPEN: // 接收端口确认信号（Ack_Open）
+                    correct_port = true;
                     break;
                 default:
                     // 错误的数据类型
@@ -202,7 +206,7 @@ namespace Velodrome
                 {
                     if (!float.TryParse(calibrationParameter, out float data))
                         throw new Exception("Input Calibration Parameters are not the correct format.");
-                    
+
                     // 将浮点数转换为 4 字节的字节数组
                     dataBytes = BitConverter.GetBytes(data);
                     Array.Reverse(dataBytes);
@@ -224,31 +228,31 @@ namespace Velodrome
                 MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void chBoxAlwaysUpdate_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chBoxAlwaysUpdate.Checked)
-            {
-                chBoxAlwaysUpdate.Checked = true;
-                chBoxAddToOldData.Checked = false;
-            }
-            else
-            {
-                chBoxAddToOldData.Checked = true;
-            }
-        }
+        //private void chBoxAlwaysUpdate_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (chBoxAlwaysUpdate.Checked)
+        //    {
+        //        chBoxAlwaysUpdate.Checked = true;
+        //        chBoxAddToOldData.Checked = false;
+        //    }
+        //    else
+        //    {
+        //        chBoxAddToOldData.Checked = true;
+        //    }
+        //}
 
-        private void chBoxAddToOldData_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chBoxAddToOldData.Checked)
-            {
-                chBoxAlwaysUpdate.Checked = false;
-                chBoxAddToOldData.Checked = true;
-            }
-            else
-            {
-                chBoxAlwaysUpdate.Checked = true;
-            }
-        }
+        //private void chBoxAddToOldData_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (chBoxAddToOldData.Checked)
+        //    {
+        //        chBoxAlwaysUpdate.Checked = false;
+        //        chBoxAddToOldData.Checked = true;
+        //    }
+        //    else
+        //    {
+        //        chBoxAlwaysUpdate.Checked = true;
+        //    }
+        //}
 
         private void btnCalibration_Click(object sender, EventArgs e)
         {
@@ -339,19 +343,24 @@ namespace Velodrome
                 MessageBox.Show(err.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-    }
 
-    //// 定义两个Packet结构体，表示接收/发送的参数包，一个用于int类型参数，另一个用于float类型参数
-    //public struct Packet_Int
-    //{
-    //    public Byte type;
-    //    public UInt32 data;
-    //}
-    //public struct Packet_Float
-    //{
-    //    public Byte type;
-    //    public float data;
-    //}
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+
+        }
+
+        //// 定义两个Packet结构体，表示接收/发送的参数包，一个用于int类型参数，另一个用于float类型参数
+        //public struct Packet_Int
+        //{
+        //    public Byte type;
+        //    public UInt32 data;
+        //}
+        //public struct Packet_Float
+        //{
+        //    public Byte type;
+        //    public float data;
+        //}
+    }
     public struct CalibrationParameters
     {
         public string offset;
