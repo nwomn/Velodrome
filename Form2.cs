@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Velodrome
+﻿namespace Velodrome
 {
     public partial class Form2 : Form
     {
@@ -52,10 +42,10 @@ namespace Velodrome
 
                 try
                 {
-                    // 将数据写入到文件中
+                    // Open a StreamWriter to write data
                     using (StreamWriter writer = new StreamWriter(filePath))
                     {
-                        // 写入您想要保存的数据
+                        // Write data
                         string formattedData =
                             "Offset: " + tBoxOffset.Text + "\r\n" +
                             "Coefficient: " + tBoxCoefficient.Text + "\r\n" +
@@ -63,8 +53,7 @@ namespace Velodrome
                             "Power to Speed0: " + tBoxPtS0.Text + "\r\n" +
                             "Power to Speed1: " + tBoxPtS1.Text + "\r\n" +
                             "Power to Speed2: " + tBoxPtS1.Text + "\r\n" +
-                            "Power to Speed3: " + tBoxPtS3.Text + "\r\n"; // 根据需要格式化数据
-                        // 将格式化后的数据写入到文件中
+                            "Power to Speed3: " + tBoxPtS3.Text + "\r\n"; // Formalise the data
                         writer.WriteLine(formattedData);
                     }
 
@@ -89,10 +78,10 @@ namespace Velodrome
 
                 try
                 {
-                    // 读取选中的 txt 文件内容
+                    // Read txt file
                     string[] lines = File.ReadAllLines(filePath);
 
-                    // 分解每行文本，并将值填充到相应的文本框中
+                    // Decode text
                     foreach (string line in lines)
                     {
                         string[] keyValue = line.Split(':');
@@ -101,7 +90,6 @@ namespace Velodrome
                             string key = keyValue[0].Trim();
                             string value = keyValue[1].Trim();
 
-                            // 根据键的名称填充到相应的文本框中
                             switch (key)
                             {
                                 case "Offset":
